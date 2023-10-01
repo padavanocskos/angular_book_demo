@@ -1,4 +1,10 @@
 <div style="text-align:center;">
   <h1>Welcome tp {{ title }}</h1>
-  <app-stock-item></app-stock-item>
+  <app-stock-item 
+    [stock-item]="stock"
+    *ngFor="let stock of stocks; index as i;"
+    (toggleFavoriteEvent)="onToggleFavorite($event)"
+    [index]="i"></app-stock-item>
+    <button (click)="changeStockObject()">Change Stock</button>
+    <button (click)="changeStockPrice()">Change Price</button>
 </div>

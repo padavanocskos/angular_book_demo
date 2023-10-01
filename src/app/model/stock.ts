@@ -1,13 +1,23 @@
-export class Stock {
-  favorite: boolean = false;
-
+interface IStock {
+  id: number;
+  name: string;
+  code: string;
+  price: number;
+  previousPrice: number;
+  image: string;
+  onSale: number;
+  isFavorite: boolean;
+}
+export class Stock implements IStock {
   constructor(
+    public id: number,
     public name: string,
     public code: string,
-    public price: number,
-    public previousPrice: number,
+    public price: number = 0,
+    public previousPrice = 0,
     public image: string,
-    public onSale: number
+    public onSale = 0,
+    public isFavorite = false
   ) {}
 
   isPositiveChange() {
